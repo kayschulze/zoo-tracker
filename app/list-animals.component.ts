@@ -1,22 +1,29 @@
-import { Component, Input } from '@angular/core';
-import { ZooAnimal } from './zooAnimal';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ZooAnimal } from './zooanimal';
 
 @Component({
   selector: 'list-animals',
   template: `
-    <li *ngFor="let zooAnimal of zooAnimalList">
-      <h4>{{zooAnimal.name}}</h4>
-      <ul><li>Species: {{zooAnimal.species}}</li>
-      <li>Age: {{zooAnimal.age}}</li>
-      <li>Diet: {{zooAnimal.diet}}</li>
-      <li>Location: {{zooAnimal.location}}</li>
-      <li>Caretakers: {{zooAnimal.caretakers}}</li>
-      <li>Sex: {{zooAnimal.sex}}</li>
-      <li>Likes: {{zooAnimal.likes}}</li>
-      <li>Dislikes: {{zooAnimal.dislikes}}</li></ul>
+    <div *ngFor="let currentZooAnimal of zooAnimalList">
+      <h4>{{currentZooAnimal.name}}</h4>
+      <ul><li>Species: {{currentZooAnimal.species}}</li>
+      <li>Age: {{currentZooAnimal.age}}</li>
+      <li>Diet: {{currentZooAnimal.diet}}</li>
+      <li>Location: {{currentZooAnimal.location}}</li>
+      <li>Caretakers: {{currentZooAnimal.caretakers}}</li>
+      <li>Sex: {{currentZooAnimal.sex}}</li>
+      <li>Likes: {{currentZooAnimal.likes}}</li>
+      <li>Dislikes: {{currentZooAnimal.dislikes}}</li></ul>
+
+      <button (click) = "editButtonClicked(currentZooAnimal)">Edit Zoo Animal</button></div>
   `
 })
 
 export class ListAnimalsComponent {
   @Input() zooAnimalList: ZooAnimal[];
+  @Output() clickSender = new EventEmitter();
+
+  editButtonClicked(zooAnimalToEdit: ZooAnimal) {
+    this.clickSender.emit(zooAnimalToEdit);
+  }
 }
