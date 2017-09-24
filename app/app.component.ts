@@ -10,10 +10,9 @@ import { ZooAnimal } from './zooanimal';
 
      <edit-zoo-animal [childSelectedZooAnimal] = "selectedZooAnimal" (doneButtonClickedSender) = "saveEditing()"></edit-zoo-animal>
 
+     <add-zoo-animal (newZooAnimalSender) = "addZooAnimal($event)"></add-zoo-animal>
   `
 })
-
-// <add-animal></add-animal>
 
 export class AppComponent {
   selectedZooAnimal = null;
@@ -31,4 +30,7 @@ export class AppComponent {
     this.selectedZooAnimal = null;
   }
 
+  addZooAnimal(newZooAnimalFromChild: ZooAnimal) {
+    this.masterZooAnimalList.push(newZooAnimalFromChild);
+  }
 }
