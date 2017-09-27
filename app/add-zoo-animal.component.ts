@@ -4,37 +4,39 @@ import { ZooAnimal } from './zooanimal';
 @Component({
   selector: 'add-zoo-animal',
   template: `
-    <div class="addZooAnimal">
+    <div class="md-col-4">
       <h4>Add New Zoo Animal</h4>
 
       <label for="name">Name</label>
-      <input type="text" #name placeholder="name" required>
+      <input type="text" #name placeholder="name" required><br>
 
       <label for="species">Species</label>
-      <input type="text" #species placeholder="species" required>
+      <input type="text" #species placeholder="species" required><br>
 
       <label for="age">Age</label>
-      <input type="number" #age placeholder="age" required>
+      <input type="number" #age placeholder="age" required><br>
 
       <label for="diet">Diet</label>
-      <input type="text" #diet placeholder="diet" required>
+      <input type="text" #diet placeholder="diet" required><br>
 
       <label for="location">Location</label>
-      <input type="text" #location placeholder="location" required>
+      <input type="text" #location placeholder="location" required><br>
 
       <label for="caretakers">Caretakers</label>
-      <input type="number" #caretakers placeholder="caretakers" required>
+      <input type="number" #caretakers placeholder="caretakers" required><br>
 
       <label for="sex">Sex</label>
-      <input type="text" #sex placeholder="sex" required>
+      <input type="text" #sex placeholder="sex" required><br>
 
       <label for="likes">Likes</label>
-      <input type="text" #likes placeholder="likes" required>
+      <input type="text" #likes placeholder="likes" required><br>
 
       <label for="dislikes">Dislikes</label>
-      <input type="text" #dislikes placeholder="dislikes" required>
+      <input type="text" #dislikes placeholder="dislikes" required><br>
 
-      <button (click) = "addZooAnimal(name.value, species.value, age.value, diet.value, location.value, caretakers.value, sex.value, likes.value, dislikes.value)">Add Zoo Animal</button></div>
+      <button (click) = "addZooAnimal(name.value, species.value, age.value, diet.value, location.value, caretakers.value, sex.value, likes.value, dislikes.value)">Add Zoo Animal</button>
+    </div>
+
   `
 })
 

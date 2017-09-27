@@ -10,15 +10,15 @@ import { ZooAnimal } from './zooanimal';
       <option value="matureAnimals">Mature Animals (>= 2 years)</option>
     </select>
     <div *ngFor="let currentZooAnimal of zooAnimalList | filterness:filterByFilterness">
-      <h4>{{currentZooAnimal.name}}</h4>
-      <ul><li>Species: {{currentZooAnimal.species}}</li>
-      <li>Age: {{currentZooAnimal.age}}</li>
-      <li>Diet: {{currentZooAnimal.diet}}</li>
-      <li>Location: {{currentZooAnimal.location}}</li>
-      <li>Caretakers: {{currentZooAnimal.caretakers}}</li>
-      <li>Sex: {{currentZooAnimal.sex}}</li>
-      <li>Likes: {{currentZooAnimal.likes}}</li>
-      <li>Dislikes: {{currentZooAnimal.dislikes}}</li></ul>
+      <h3><strong>{{currentZooAnimal.name}}</strong></h3>
+      <h4>Species: {{currentZooAnimal.species}}</h4>
+      <h4>Age: {{currentZooAnimal.age}}</h4>
+      <h4>Diet: {{currentZooAnimal.diet}}</h4>
+      <h4>Location: {{currentZooAnimal.location}}</h4>
+      <h4>Caretakers: {{currentZooAnimal.caretakers}}</h4>
+      <h4>Sex: {{currentZooAnimal.sex}}</h4>
+      <h4>Likes: {{currentZooAnimal.likes}}</h4>
+      <h4>Dislikes: {{currentZooAnimal.dislikes}}</h4><br>
 
       <button (click) = "editButtonClicked(currentZooAnimal)">Edit Zoo Animal</button></div>
   `
