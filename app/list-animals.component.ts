@@ -9,18 +9,15 @@ import { ZooAnimal } from './zooanimal';
       <option value="youngAnimals">Young Animals (< 2 years)</option>
       <option value="matureAnimals">Mature Animals (>= 2 years)</option>
     </select>
-    <div *ngFor="let currentZooAnimal of zooAnimalList | filterness:filterByFilterness">
-      <h3><strong>{{currentZooAnimal.name}}</strong></h3>
-      <h4>Species: {{currentZooAnimal.species}}</h4>
-      <h4>Age: {{currentZooAnimal.age}}</h4>
-      <h4>Diet: {{currentZooAnimal.diet}}</h4>
-      <h4>Location: {{currentZooAnimal.location}}</h4>
-      <h4>Caretakers: {{currentZooAnimal.caretakers}}</h4>
-      <h4>Sex: {{currentZooAnimal.sex}}</h4>
-      <h4>Likes: {{currentZooAnimal.likes}}</h4>
-      <h4>Dislikes: {{currentZooAnimal.dislikes}}</h4><br>
+    <div *ngFor="let zooAnimal of zooAnimalList | filterness:filterByFilterness" [class.selected] = "zooAnimal === selectedZooAnimal"(click) ="onSelect(zooAnimal)">
+      <h3><strong>{{zooAnimal.name}}</strong></h3>
+      <h4>Species: {{zooAnimal.species}}</h4>
+      <animal-details [text] = "selectedZooAnimal"></animal-details>
 
-      <button (click) = "editButtonClicked(currentZooAnimal)">Edit Zoo Animal</button></div>
+<edit-zoo-animal [childSelectedZooAnimal] = "selectedZooAnimal" (doneButtonClickedSender) = "saveEditing()"></edit-zoo-animal>
+
+    </div>
+
   `
 })
 
@@ -28,13 +25,16 @@ export class ListAnimalsComponent {
   @Input() zooAnimalList: ZooAnimal[];
   @Output() clickSender = new EventEmitter();
 
-  filterByFilterness: string = "everything";
+  selectedZooAnimal = null;
 
-  editButtonClicked(zooAnimalToEdit: ZooAnimal) {
-    this.clickSender.emit(zooAnimalToEdit);
-  }
+  filterByFilterness: string = "everything";
 
   onChange(optionFromMenu) {
     this.filterByFilterness = optionFromMenu;
+  }
+
+  onSelect(thisZooAnimal:ZooAnimal): void {
+    console.log("hi");
+    this.selectedZooAnimal = thisZooAnimal;
   }
 }

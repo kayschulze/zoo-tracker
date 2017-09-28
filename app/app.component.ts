@@ -8,8 +8,6 @@ import { ZooAnimal } from './zooanimal';
      <h1>The Menagerie Zoo</h1>
      <list-animals [zooAnimalList] = "masterZooAnimalList" (clickSender) = "editZooAnimal($event)"></list-animals>
 
-     <edit-zoo-animal [childSelectedZooAnimal] = "selectedZooAnimal" (doneButtonClickedSender) = "saveEditing()"></edit-zoo-animal>
-
      <add-zoo-animal (newZooAnimalSender) = "addZooAnimal($event)"></add-zoo-animal>
   `
 })

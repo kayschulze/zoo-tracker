@@ -5,11 +5,12 @@ import { FormsModule }  from '@angular/forms';
 import { ListAnimalsComponent } from './list-animals.component';
 import { EditZooAnimalComponent } from './edit-zoo-animal.component';
 import { AddZooAnimalComponent } from './add-zoo-animal.component';
+import { AnimalDetailsComponent } from './animal-details.component';
 import { FilternessPipe } from './filterness.pipe';
 
 @NgModule({
   imports: [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, ListAnimalsComponent, EditZooAnimalComponent, AddZooAnimalComponent, FilternessPipe ],
+  declarations: [ AppComponent, ListAnimalsComponent, EditZooAnimalComponent, AddZooAnimalComponent, AnimalDetailsComponent, FilternessPipe ],
   bootstrap: [ AppComponent ]
 })
 
